@@ -1,0 +1,82 @@
+.search-input {
+	width: 300px;
+	border-radius: 6px;
+	padding: 10px;
+	border: solid 1px;
+}
+.container {
+	max-width: 360px;
+	min-width: 320px;
+	padding: 10px;
+}
+.search-input:focus-visible {
+	border: solid 1px;
+}
+body {
+	margin: 0px;
+}
+h2,
+h1 {
+	text-align: center;
+}
+.search {
+	display: block;
+	text-align: center;
+}
+
+.autocomplete-results {
+	background-color: white;
+	border: 1px solid #ccc;
+	list-style-type: none;
+	padding: 0px;
+	display: none;
+	border-radius: 6px;
+	width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.autocomplete-results li {
+	padding: 8px;
+	cursor: pointer;
+	border-radius: 6px;
+	transition: 0.25s;
+	width: 304px;
+}
+
+.autocomplete-results li:hover {
+	background-color: greenyellow;
+}
+
+.repo-list {
+	list-style-type: none;
+	padding: 0;
+	width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.repo-list li {
+	padding: 8px 16px;
+	border: 1px solid #ccc;
+	margin-bottom: 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 6px;
+}
+
+.repo-saved {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.delete-btn {
+	cursor: pointer;
+	background-color: red;
+	border-radius: 6px;
+	transition: 0.25s;
+}
+.delete-btn:hover {
+	opacity: 0.5;
+}
