@@ -80,3 +80,6 @@ h1 {
 .delete-btn:hover {
 	opacity: 0.5;
 }
+.disp-block {
+	display: block;
+}

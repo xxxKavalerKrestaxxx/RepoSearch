@@ -2,14 +2,6 @@ const searchInput = document.querySelector(".search-input");
 const autoCompleteResults = document.querySelector(".autocomplete-results");
 const repoList = document.querySelector(".repo-list");
 
-function debounce(func, time) {
-	let timeOut;
-	return function (...args) {
-		clearTimeout(timeOut);
-		timeOut = setTimeout(() => func.apply(this, args), time);
-	};
-}
-
 function autoComplete(items) {
 	if (!items.length) {
 		autoCompleteResults.style.display = "none";
@@ -27,13 +19,21 @@ function autoComplete(items) {
 		});
 		autoCompleteResults.appendChild(elementList);
 	});
-	autoCompleteResults.style.display = "block";
+	autoCompleteResults.classList.add("disp-block");
+}
+
+function debounce(func, time) {
+	let timeOut;
+	return function (...args) {
+		clearTimeout(timeOut);
+		timeOut = setTimeout(() => func.apply(this, args), time);
+	};
 }
 
 function searchRepos(query) {
 	const queryTrue = query.trim();
 	if (!queryTrue) {
-		autoCompleteResults.style.display = "none";
+		autoCompleteResults.classList.remove("disp-block");
 		return;
 	}
 	fetch(
@@ -72,5 +72,8 @@ function addToRepoList(repo) {
 
 searchInput.addEventListener(
 	"input",
-	debounce(() => searchRepos(searchInput.value), 500)
+	debounce((event) => {
+		const searchText = event.target.value;
+		searchRepos(searchText);
+	}, 500)
 );
