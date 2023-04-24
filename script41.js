@@ -4,7 +4,7 @@ const repoList = document.querySelector(".repo-list");
 
 function autoComplete(items) {
 	if (!items.length) {
-		autoCompleteResults.style.display = "none";
+		autoCompleteResults.classList.remove("disp-block");
 		return;
 	}
 	autoCompleteResults.textContent = "";
@@ -15,7 +15,7 @@ function autoComplete(items) {
 		elementList.addEventListener("click", () => {
 			addToRepoList(item);
 			searchInput.value = "";
-			autoCompleteResults.style.display = "none";
+			autoCompleteResults.classList.remove("disp-block");
 		});
 		autoCompleteResults.appendChild(elementList);
 	});
